@@ -128,5 +128,14 @@ module.exports = {
         }
       ]
     },
+    {
+      'profile': {
+        'first': 'I',
+        'last': 'J',
+        'display': 'I J',
+        'img_url': 'https://thumb7.shutterstock.com/display_pic_with_logo/1246429/255118591/stock-vector-illustration-of-crowd-of-people-icon-silhouettes-vector-social-icon-flat-style-design-user-group-255118591.jpg'
+      },
+      'stories': []
+    },
   ]
 };
