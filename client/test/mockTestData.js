@@ -12,7 +12,7 @@ module.exports = {
         'src': 'https://s3-us-west-1.amazonaws.com/vrstories/360-panorama-matador-seo.jpg',
       },
       {
-        'type': 'video/mp4',
+        'type': 'image/mp4',
         'src': 'https://s3-us-west-1.amazonaws.com/vrstories/360+degree+Video-+Pugs+Chompin+down.mp4',
       }
     ]
@@ -31,7 +31,7 @@ module.exports = {
           'src': 'https://thumb9.shutterstock.com/display_pic_with_logo/1589666/318049802/stock-vector-calendar-isolated-flat-web-mobile-icon-vector-sign-symbol-button-element-silhouette-318049802.jpg',
         },
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(1).mov',
         },
         {
@@ -49,7 +49,7 @@ module.exports = {
       },
       'stories': [
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(2).mov',
         },
         {
@@ -57,7 +57,7 @@ module.exports = {
           'src': 'https://thumb9.shutterstock.com/display_pic_with_logo/1589666/318049802/stock-vector-calendar-isolated-flat-web-mobile-icon-vector-sign-symbol-button-element-silhouette-318049802.jpg',
         },
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(3).mov',
         }
       ]
@@ -75,7 +75,7 @@ module.exports = {
           'src': 'https://thumb9.shutterstock.com/display_pic_with_logo/3868169/418009015/stock-vector-internet-icon-go-to-web-sign-418009015.jpg',
         },
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(4).mov',
         },
         {
@@ -93,7 +93,7 @@ module.exports = {
       },
       'stories': [
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(4).mov',
         },
         {
@@ -101,7 +101,7 @@ module.exports = {
           'src': 'https://thumb9.shutterstock.com/display_pic_with_logo/3868169/418009015/stock-vector-internet-icon-go-to-web-sign-418009015.jpg',
         },
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(4).mov',
         }
       ]
@@ -119,7 +119,7 @@ module.exports = {
           'src': 'https://thumb9.shutterstock.com/display_pic_with_logo/1332355/438858262/stock-vector-email-icon-438858262.jpg',
         },
         {
-          'type': 'video/mp4',
+          'type': 'image/mp4',
           'src': 'https://s3-us-west-1.amazonaws.com/vrstoriesmockdata/video+(5).mov',
         },
         {

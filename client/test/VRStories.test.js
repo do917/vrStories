@@ -10,7 +10,7 @@ import mockData from './mockTestData.js';
   
 
 describe('<VRStories />', () => {
-  let wrapper;
+  let wrapper, wrapperAutoPlayStart, wrapperAutoPlayNext;
 
   beforeEach(() => {
     // sinon.spy(VRStories.prototype, 'componentWillMount');
@@ -20,7 +20,29 @@ describe('<VRStories />', () => {
         friends={mockData.friends}
         autoPlayNext={false}
         autoPlayStart={false}
-        splashScreen={'https://thumb1.shutterstock.com/display_pic_with_logo/1589666/318049859/stock-vector-phone-isolated-flat-web-mobile-icon-vector-sign-symbol-button-element-silhouette-318049859.jpg'}
+        splashScreen={'./abc.jpg'}
+        assetsCallback={() => { return; } }
+      />
+    );
+
+    wrapperAutoPlayStart = shallow(
+      <VRStories 
+        user={mockData.user}
+        friends={mockData.friends}
+        autoPlayNext={false}
+        autoPlayStart={true}
+        splashScreen={'./abc.jpg'}
+        assetsCallback={() => { return; } }
+      />
+    );
+
+    wrapperAutoPlayNext = shallow(
+      <VRStories 
+        user={mockData.user}
+        friends={mockData.friends}
+        autoPlayNext={true}
+        autoPlayStart={false}
+        splashScreen={'./abc.jpg'}
         assetsCallback={() => { return; } }
       />
     );
@@ -45,9 +67,8 @@ describe('<VRStories />', () => {
 
     describe('when autoPlayStart is true', () => {
       it('should play first story of friends', () => {
-        wrapper.setState({ autoPlayStart: true });
-        expect(wrapper.instance().state.currentStory.id).toBe(0);
-        expect(wrapper.instance().state.currentStory.index).toBe(0);
+        expect(wrapperAutoPlayStart.instance().state.currentStory.id).toBe(0);
+        expect(wrapperAutoPlayStart.instance().state.currentStory.index).toBe(0);
       });
     });
 
@@ -78,32 +99,81 @@ describe('<VRStories />', () => {
   // });
 
   describe('stories logic', () => {
-    describe('when no story is playing', () => {
-      describe('when user is clicked', () => {
-        it('should play the user first story', () => {
-          wrapper.instance().onFriendClick(wrapper.state().friends[0]);
-          expect(wrapper.state().currentStory).toBe(wrapper.state().friends[0]);
+    describe('handling next story event when no story is currently playing', () => {
+      describe('when a user is clicked', () => {
+        it('should play the user\'s first story', () => {
+          wrapper.instance().onFriendClick(wrapper.state().friends[2]);
+          expect(wrapper.state().currentStory).toBe(wrapper.state().friends[2].stories[0]);
         });
       });
 
       describe('when scene is clicked', () => {
-
+        it('should do nothing and keep it at splash screen', () => {
+          expect(wrapper.state().currentStory.id).toBe(-2);
+          expect(wrapper.state().currentStory.index).toBe(-2);
+        });
       });
     });
 
 
     describe('handling next story event when a story is currently playing', () => {
-      describe('when a next story of the currently playing friend is available', () => {
+      beforeEach(() => wrapper.instance().onFriendClick(wrapper.state().friends[2]));
+
+      describe('clicking on a friend whos story is currently playing', () => {
+        beforeEach(() => wrapper.instance().onFriendClick(wrapper.state().friends[2]));
+        
+        describe('when autoPlayNext is true', () => {
+          beforeEach(() => wrapper.setState({ autoPlayNext: true }));
+          
+          describe('when next story is available', () => {
+            // wrapper.setState({autoPlayNext: true})
+            it('should play the next story', () => {
+              expect(wrapper.state().currentStory.id).toBe(2);
+              expect(wrapper.state().currentStory.index).toBe(1);
+            });
+          });
+          describe('when next story is not available', () => {
+            beforeEach(() => {
+              wrapper.instance().onFriendClick(wrapper.state().friends[2]);
+              // wrapper.instance().onFriendClick(wrapper.state().friends[2]);
+            });
+            describe('when next friend\'s story is available', () => {
+              it('should play the next friend\'s story', () => {
+                console.log('checking state', wrapper.state());
+                expect(wrapper.state().currentStory.id).toBe(3);
+                expect(wrapper.state().currentStory.index).toBe(0);
+              });
+              // expect(wrapper.state().currentStory.id).toBe(3);
+
+              // expect(wrapper.state().currentStory.index).toBe(0);
+            });
+            describe('when next friend\'s story is not available', () => {
+
+            });
+          });
+        });
+
+        describe('when autoPlayNext is false', () => {
+          describe('when next story is available', () => {
+            it('should play the next story', () => {
+
+            });
+          });
+
+          describe('when next story is not available', () => {
+            it('should go back to splash screen', () => {
+
+            });
+          });
+        });
 
       });
 
-      describe('when a next story of the currently playing friend is not available and autoPlayNext is true', () => {
+      describe('clicking on another friend whos story isn\'t playing', () => {
 
       });
 
-      describe('when a next story of the currently playing friend is not available and autoPlayNext is false', () => {
 
-      });
     });
   });
 });
