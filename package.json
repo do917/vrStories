@@ -60,6 +60,7 @@
     "semantic-ui-react": "^0.71.0",
     "sinon": "^2.3.8",
     "url": "^0.11.0",
+    "user": "0.0.0",
     "webpack": "^2.3.2"
   },
   "devDependencies": {
