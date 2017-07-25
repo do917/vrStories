@@ -13,9 +13,9 @@
     },
 
     "Facebook": {
-      "clientID": "FILL_ME_IN",
-      "clientSecret": "FILL_ME_IN",
-      "callbackURL": "http://FILL_ME_IN/auth/facebook/callback"
+      "clientID": "127153677885781",
+      "clientSecret": "5f847d5b53ae2bf30821fd2be93bb770",
+      "callbackURL": "http://localhost:3000/auth/facebook/callback"
     },
 
     "Twitter": {

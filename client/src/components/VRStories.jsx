@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Entity, Scene, Options } from 'aframe-react';
 import VRProfiles from './VRProfiles.jsx';
-import VRAssets from './VRAssets.jsx';
 import VRPrimitive from './VRPrimitive.jsx';
 import VRExit from './VRExit.jsx';
 import mockData from './mockData.js';
